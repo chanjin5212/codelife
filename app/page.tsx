@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { BlogSidebar } from "@/components/blog-sidebar"
 import BlogPostComponent from "@/components/blog-post"
 import SpringBeanLifecyclePage from "@/posts/spring-bean-lifecycle"
@@ -57,6 +57,13 @@ export default function BlogPage() {
 
   const latestPost = blogPosts[0] // 첫 번째 글이 가장 최신 글
   const currentPost = selectedPost ? blogPosts.find((post) => post.id === selectedPost) : latestPost
+
+  // 글 선택 시 맨 위로 스크롤
+  useEffect(() => {
+    if (selectedPost) {
+      window.scrollTo(0, 0)
+    }
+  }, [selectedPost])
 
   return (
     <div className="min-h-screen bg-background">
