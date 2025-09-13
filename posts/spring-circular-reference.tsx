@@ -377,42 +377,6 @@ public class AppConfig {
                 </div>
               </div>
 
-              <div>
-                <h3 className="text-xl font-bold text-slate-800 dark:text-slate-200 mb-4">🎯 고급 설정 옵션</h3>
-                <div className="bg-slate-900 rounded-lg overflow-hidden border border-slate-700">
-                  <div className="flex items-center justify-between px-4 py-2 bg-slate-800 border-b border-slate-700">
-                    <div className="flex items-center gap-2">
-                      <Code2 className="w-4 h-4 text-slate-400" />
-                      <span className="text-sm text-slate-300 font-mono">java</span>
-                    </div>
-                    <div className="flex gap-1">
-                      <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                      <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                      <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                    </div>
-                  </div>
-                  <pre className="p-4 overflow-x-auto">
-                    <code className="text-sm font-mono text-slate-100 leading-relaxed whitespace-pre">{`@Configuration
-@ComponentScan(
-    basePackages = "com.example",
-    includeFilters = @ComponentScan.Filter(
-        type = FilterType.ANNOTATION, 
-        classes = MyCustomAnnotation.class
-    ),
-    excludeFilters = @ComponentScan.Filter(
-        type = FilterType.REGEX, 
-        pattern = "com.example.exclude.*"
-    ),
-    useDefaultFilters = true,
-    scopeResolver = AnnotationScopeMetadataResolver.class
-)
-public class AppConfig {
-    // Configuration 내용
-}`}</code>
-                  </pre>
-                </div>
-              </div>
-
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 <Card className="p-4 bg-green-50 dark:bg-green-950 border-green-200 dark:border-green-800">
                   <h4 className="font-bold text-green-900 dark:text-green-100 mb-2">@Component</h4>
@@ -497,61 +461,6 @@ public class TestConfig {
               </div>
 
               <div>
-                <h3 className="text-xl font-bold text-slate-800 dark:text-slate-200 mb-4">📄 Property 관리</h3>
-                <div className="bg-slate-900 rounded-lg overflow-hidden border border-slate-700">
-                  <div className="flex items-center justify-between px-4 py-2 bg-slate-800 border-b border-slate-700">
-                    <div className="flex items-center gap-2">
-                      <Code2 className="w-4 h-4 text-slate-400" />
-                      <span className="text-sm text-slate-300 font-mono">java</span>
-                    </div>
-                    <div className="flex gap-1">
-                      <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                      <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                      <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                    </div>
-                  </div>
-                  <pre className="p-4 overflow-x-auto">
-                    <code className="text-sm font-mono text-slate-100 leading-relaxed whitespace-pre">{String.raw`@Configuration
-@PropertySource("classpath:application.properties")
-public class AppConfig {
-    
-    @Value("${database.url}")
-    private String databaseUrl;
-    
-    @Value("${database.username:defaultUser}") // 기본값 설정
-    private String databaseUsername;
-    
-    @Bean
-    public DataSource dataSource() {
-        HikariDataSource dataSource = new HikariDataSource();
-        dataSource.setJdbcUrl(databaseUrl);
-        dataSource.setUsername(databaseUsername);
-        return dataSource;
-    }
-}
-
-// Environment를 통한 Property 접근
-@Configuration
-public class EnvironmentConfig {
-    
-    @Autowired
-    private Environment environment;
-    
-    @Bean
-    public MyService myService() {
-        String apiKey = environment.getProperty("api.key");
-        int timeout = environment.getProperty("api.timeout", Integer.class, 5000);
-        return new MyService(apiKey, timeout);
-    }
-}`}</code>
-                  </pre>
-                </div>
-              </div></code>
-                  </pre>
-                </div>
-              </div>
-
-              <div>
                 <h3 className="text-xl font-bold text-slate-800 dark:text-slate-200 mb-4">🔧 Profile 활성화 방법</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <Card className="p-4 border-slate-200 dark:border-slate-700">
@@ -580,99 +489,6 @@ public class EnvironmentConfig {
                   </Card>
                 </div>
               </div>
-            </div>
-          </section>
-
-          {/* 실전 예제 */}
-          <section>
-            <div className="flex items-center gap-3 mb-6">
-              <CheckCircle className="w-7 h-7 text-emerald-600 dark:text-emerald-400" />
-              <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100">6. 실전 종합 예제</h2>
-            </div>
-
-            <div className="bg-emerald-50 dark:bg-emerald-950 p-6 rounded-lg border border-emerald-200 dark:border-emerald-800 mb-6">
-              <h3 className="text-lg font-semibold text-emerald-900 dark:text-emerald-100 mb-3">완전한 Spring 설정 예제</h3>
-              <p className="text-emerald-800 dark:text-emerald-200">
-                실무에서 사용할 수 있는 완전한 Spring Configuration 예제를 살펴봅시다.
-              </p>
-            </div>
-
-            <div className="bg-slate-900 rounded-lg overflow-hidden border border-slate-700">
-              <div className="flex items-center justify-between px-4 py-2 bg-slate-800 border-b border-slate-700">
-                <div className="flex items-center gap-2">
-                  <Code2 className="w-4 h-4 text-slate-400" />
-                  <span className="text-sm text-slate-300 font-mono">java</span>
-                </div>
-                <div className="flex gap-1">
-                  <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                  <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                  <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                </div>
-              </div>
-              <pre className="p-4 overflow-x-auto">
-                <code className="text-sm font-mono text-slate-100 leading-relaxed whitespace-pre">{`@Configuration
-@EnableTransactionManagement
-@ComponentScan(basePackages = {
-    "com.example.service",
-    "com.example.repository"
-})
-@PropertySource({
-    "classpath:application.properties",
-    "classpath:application-$" + "{spring.profiles.active}.properties"
-})
-public class RootConfig {
-    
-    @Autowired
-    private Environment env;
-    
-    @Bean
-    @Profile("!test")
-    public DataSource dataSource() {
-        HikariConfig config = new HikariConfig();
-        config.setJdbcUrl(env.getProperty("database.url"));
-        config.setUsername(env.getProperty("database.username"));
-        config.setPassword(env.getProperty("database.password"));
-        config.setMaximumPoolSize(env.getProperty("database.pool.size", Integer.class, 20));
-        return new HikariDataSource(config);
-    }
-    
-    @Bean
-    @Profile("test")
-    public DataSource testDataSource() {
-        return new EmbeddedDatabaseBuilder()
-            .setType(EmbeddedDatabaseType.H2)
-            .addScript("classpath:schema.sql")
-            .addScript("classpath:test-data.sql")
-            .build();
-    }
-    
-    @Bean
-    public PlatformTransactionManager transactionManager(DataSource dataSource) {
-        return new DataSourceTransactionManager(dataSource);
-    }
-    
-    @Bean
-    @ConditionalOnProperty(name = "cache.enabled", havingValue = "true")
-    public CacheManager cacheManager() {
-        return new ConcurrentMapCacheManager("users", "orders");
-    }
-}
-
-// 메인 애플리케이션 설정
-@SpringBootApplication
-@Import(RootConfig.class)
-public class Application {
-    
-    public static void main(String[] args) {
-        ConfigurableApplicationContext context = 
-            SpringApplication.run(Application.class, args);
-        
-        // Profile 확인
-        String[] activeProfiles = context.getEnvironment().getActiveProfiles();
-        System.out.println("Active Profiles: " + Arrays.toString(activeProfiles));
-    }
-}`}</code>
-              </pre>
             </div>
           </section>
 
