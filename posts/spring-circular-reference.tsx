@@ -511,14 +511,14 @@ public class TestConfig {
                     </div>
                   </div>
                   <pre className="p-4 overflow-x-auto">
-                    <code className="text-sm font-mono text-slate-100 leading-relaxed whitespace-pre">{`@Configuration
+                    <code className="text-sm font-mono text-slate-100 leading-relaxed whitespace-pre">{String.raw`@Configuration
 @PropertySource("classpath:application.properties")
 public class AppConfig {
     
-    @Value("$" + "{database.url}")
+    @Value("${database.url}")
     private String databaseUrl;
     
-    @Value("$" + "{database.username:defaultUser}") // 기본값 설정
+    @Value("${database.username:defaultUser}") // 기본값 설정
     private String databaseUsername;
     
     @Bean
@@ -544,6 +544,9 @@ public class EnvironmentConfig {
         return new MyService(apiKey, timeout);
     }
 }`}</code>
+                  </pre>
+                </div>
+              </div></code>
                   </pre>
                 </div>
               </div>
