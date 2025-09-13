@@ -22,6 +22,7 @@ const categories: Category[] = [
     id: "spring-core",
     name: "Spring Core",
     posts: [
+      { id: "4", title: "순환 참조 문제와 해결책, @Configuration/@ComponentScan 완전 분석", date: "2024-01-22" },
       { id: "3", title: "Spring IoC/DI의 3가지 방식 완전 정복", date: "2024-01-21" },
       { id: "2", title: "Spring Bean 생명주기와 BeanFactory vs ApplicationContext", date: "2024-01-20" },
     ],

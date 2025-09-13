@@ -137,6 +137,19 @@ useState는 React 개발의 핵심이므로 이러한 패턴들을 잘 익혀두
     tags: ["Spring", "IoC", "DI", "의존성주입", "생성자주입"],
     component: SpringIocDiPage,
   },
+  {
+    id: "4",
+    title: "순환 참조 문제와 해결책, @Configuration/@ComponentScan 완전 분석",
+    excerpt: "Spring의 순환 참조 문제 해결방법과 @Configuration, @ComponentScan의 동작 원리, Profile과 Property 관리까지 완전 정복합니다.",
+    content: "",
+    category: "spring-core",
+    categoryName: "Spring Core",
+    author: "김스프링",
+    date: "2024-01-22",
+    readTime: "18분",
+    tags: ["Spring", "순환참조", "Configuration", "ComponentScan", "Profile", "Property"],
+    component: SpringCircularReferencePage,
+  },
 ]
 
 export default function BlogPage() {
