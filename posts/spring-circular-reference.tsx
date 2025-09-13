@@ -515,10 +515,10 @@ public class TestConfig {
 @PropertySource("classpath:application.properties")
 public class AppConfig {
     
-    @Value("$` + `{database.url}")
+    @Value("$" + "{database.url}")
     private String databaseUrl;
     
-    @Value("$` + `{database.username:defaultUser}") // 기본값 설정
+    @Value("$" + "{database.username:defaultUser}") // 기본값 설정
     private String databaseUsername;
     
     @Bean
@@ -615,7 +615,7 @@ public class EnvironmentConfig {
 })
 @PropertySource({
     "classpath:application.properties",
-    "classpath:application-$` + `{spring.profiles.active}.properties"
+    "classpath:application-$" + "{spring.profiles.active}.properties"
 })
 public class RootConfig {
     
