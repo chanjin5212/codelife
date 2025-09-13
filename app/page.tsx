@@ -11,108 +11,6 @@ import { Menu } from "lucide-react"
 const blogPosts = [
   {
     id: "1",
-    title: "React useState Hook 완벽 가이드",
-    excerpt:
-      "React의 가장 기본적이면서도 중요한 Hook인 useState를 깊이 있게 알아보고, 실제 예제를 통해 활용법을 익혀봅시다.",
-    content: `React의 useState Hook은 함수형 컴포넌트에서 상태를 관리할 수 있게 해주는 가장 기본적인 Hook입니다. 클래스 컴포넌트의 this.state와 this.setState를 대체하는 역할을 합니다.
-
-# useState 기본 사용법
-
-useState는 배열을 반환하며, 첫 번째 요소는 현재 상태값, 두 번째 요소는 상태를 업데이트하는 함수입니다.
-
-\`\`\`javascript
-import React, { useState } from 'react';
-
-function Counter() {
-  const [count, setCount] = useState(0);
-
-  return (
-    <div>
-      <p>현재 카운트: {count}</p>
-      <button onClick={() => setCount(count + 1)}>
-        증가
-      </button>
-      <button onClick={() => setCount(count - 1)}>
-        감소
-      </button>
-    </div>
-  );
-}
-\`\`\`
-
-# 객체 상태 관리
-
-useState로 객체를 관리할 때는 주의해야 할 점이 있습니다. React는 상태 변경을 감지하기 위해 참조를 비교하므로, 객체를 직접 수정하면 안 됩니다.
-
-\`\`\`javascript
-function UserProfile() {
-  const [user, setUser] = useState({
-    name: '',
-    email: '',
-    age: 0
-  });
-
-  const updateName = (newName) => {
-    // 잘못된 방법 - 직접 수정
-    // user.name = newName;
-    // setUser(user);
-
-    // 올바른 방법 - 새 객체 생성
-    setUser(prevUser => ({
-      ...prevUser,
-      name: newName
-    }));
-  };
-
-  return (
-    <div>
-      <input 
-        value={user.name}
-        onChange={(e) => updateName(e.target.value)}
-        placeholder="이름을 입력하세요"
-      />
-      <p>안녕하세요, {user.name}님!</p>
-    </div>
-  );
-}
-\`\`\`
-
-# 함수형 업데이트
-
-상태 업데이트가 이전 상태에 의존할 때는 함수형 업데이트를 사용하는 것이 좋습니다. 이는 특히 비동기 상황에서 중요합니다.
-
-\`\`\`javascript
-function AsyncCounter() {
-  const [count, setCount] = useState(0);
-
-  const incrementAsync = () => {
-    setTimeout(() => {
-      // 함수형 업데이트 사용
-      setCount(prevCount => prevCount + 1);
-    }, 1000);
-  };
-
-  return (
-    <div>
-      <p>카운트: {count}</p>
-      <button onClick={incrementAsync}>
-        1초 후 증가
-      </button>
-    </div>
-  );
-}
-\`\`\`
-
-useState는 React 개발의 핵심이므로 이러한 패턴들을 잘 익혀두시기 바랍니다. 다음 글에서는 useEffect Hook에 대해 알아보겠습니다.`,
-    category: "tech",
-    categoryName: "기술",
-    author: "김개발",
-    date: "2024-01-16",
-    readTime: "7분",
-    tags: ["React", "useState", "Hook", "JavaScript", "프론트엔드"],
-  },
-  {
-    id: "2",
     title: "Spring Bean 생명주기와 BeanFactory vs ApplicationContext",
     excerpt: "Spring의 핵심인 Bean의 생명주기를 깊이 있게 이해하고, BeanFactory와 ApplicationContext의 차이점을 실무 관점에서 살펴봅시다.",
     content: "",
@@ -125,7 +23,7 @@ useState는 React 개발의 핵심이므로 이러한 패턴들을 잘 익혀두
     component: SpringBeanLifecyclePage,
   },
   {
-    id: "3",
+    id: "2",
     title: "Spring IoC/DI의 3가지 방식 완전 정복",
     excerpt: "Spring Framework의 핵심인 IoC와 DI를 완전히 이해하고, 3가지 의존성 주입 방식의 차이점과 실무 적용법을 살펴봅시다.",
     content: "",
@@ -138,7 +36,7 @@ useState는 React 개발의 핵심이므로 이러한 패턴들을 잘 익혀두
     component: SpringIocDiPage,
   },
   {
-    id: "4",
+    id: "3",
     title: "순환 참조 문제와 해결책, @Configuration/@ComponentScan 완전 분석",
     excerpt: "Spring의 순환 참조 문제 해결방법과 @Configuration, @ComponentScan의 동작 원리, Profile과 Property 관리까지 완전 정복합니다.",
     content: "",
