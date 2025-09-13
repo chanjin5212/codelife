@@ -24,13 +24,14 @@ const categories: Category[] = [
 
 interface BlogSidebarProps {
   selectedCategory: string | null
+  selectedPost: string | null
   onCategorySelect: (categoryId: string | null) => void
   onPostSelect: (postId: string) => void
 }
 
-export function BlogSidebar({ selectedCategory, onCategorySelect, onPostSelect }: BlogSidebarProps) {
+export function BlogSidebar({ selectedCategory, selectedPost, onCategorySelect, onPostSelect }: BlogSidebarProps) {
   const [searchQuery, setSearchQuery] = useState("")
-  const [expandedCategories, setExpandedCategories] = useState<Set<string>>(new Set())
+  const [expandedCategories, setExpandedCategories] = useState<Set<string>>(new Set(["spring-core"]))
 
   const toggleCategory = (categoryId: string) => {
     const newExpanded = new Set(expandedCategories)
@@ -96,7 +97,11 @@ export function BlogSidebar({ selectedCategory, onCategorySelect, onPostSelect }
                     <button
                       key={post.id}
                       onClick={() => onPostSelect(post.id)}
-                      className="w-full text-left px-3 py-2 rounded-md text-xs transition-colors text-muted-foreground hover:bg-sidebar-accent/30 hover:text-sidebar-foreground"
+                      className={`w-full text-left px-3 py-2 rounded-md text-xs transition-colors ${
+                        selectedPost === post.id
+                          ? "bg-sidebar-accent text-sidebar-accent-foreground border-l-2 border-primary"
+                          : "text-muted-foreground hover:bg-sidebar-accent/30 hover:text-sidebar-foreground"
+                      }`}
                     >
                       <div className="space-y-1">
                         <div className="font-medium leading-tight">{post.title}</div>

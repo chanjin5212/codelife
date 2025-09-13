@@ -16,8 +16,8 @@ const blogPosts = [
     content: "",
     category: "spring-core",
     categoryName: "Spring Core",
-    author: "김스프링",
-    date: "2024-01-20",
+    author: "김찬진",
+    date: "2025-09-13",
     readTime: "15분",
     tags: ["Spring", "Bean", "BeanFactory", "ApplicationContext", "생명주기"],
     component: SpringBeanLifecyclePage,
@@ -29,8 +29,8 @@ const blogPosts = [
     content: "",
     category: "spring-core",
     categoryName: "Spring Core",
-    author: "김스프링",
-    date: "2024-01-21",
+    author: "김찬진",
+    date: "2025-09-13",
     readTime: "12분",
     tags: ["Spring", "IoC", "DI", "의존성주입", "생성자주입"],
     component: SpringIocDiPage,
@@ -42,8 +42,8 @@ const blogPosts = [
     content: "",
     category: "spring-core",
     categoryName: "Spring Core",
-    author: "김스프링",
-    date: "2024-01-22",
+    author: "김찬진",
+    date: "2025-09-13",
     readTime: "18분",
     tags: ["Spring", "순환참조", "Configuration", "ComponentScan", "Profile", "Property"],
     component: SpringCircularReferencePage,
@@ -71,6 +71,7 @@ export default function BlogPage() {
         <div className="hidden lg:block lg:w-80 lg:flex-shrink-0 lg:sticky lg:top-0 lg:h-screen lg:overflow-y-auto">
           <BlogSidebar
             selectedCategory={selectedCategory}
+            selectedPost={selectedPost}
             onCategorySelect={setSelectedCategory}
             onPostSelect={setSelectedPost}
           />
@@ -82,6 +83,7 @@ export default function BlogPage() {
             <div className="fixed left-0 top-0 h-full w-80 max-w-[80vw]">
               <BlogSidebar
                 selectedCategory={selectedCategory}
+                selectedPost={selectedPost}
                 onCategorySelect={(category) => {
                   setSelectedCategory(category)
                   setIsMobileSidebarOpen(false)
@@ -108,8 +110,8 @@ export default function BlogPage() {
 
           <div className="max-w-4xl mx-auto">
             <header className="mb-6 lg:mb-8">
-              <h1 className="text-2xl lg:text-4xl font-bold text-foreground mb-2 text-balance">내 블로그</h1>
-              <p className="text-muted-foreground text-base lg:text-lg">기술과 개발 이야기</p>
+              <h1 className="text-2xl lg:text-4xl font-bold text-foreground mb-2 text-balance">Chanjin Blog</h1>
+              <p className="text-muted-foreground text-base lg:text-lg">실무를 위한 이론과 개발 Study</p>
             </header>
 
             <div className="space-y-4 lg:space-y-6">

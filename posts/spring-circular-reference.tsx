@@ -19,18 +19,18 @@ export default function SpringCircularReferencePage() {
             </Badge>
           </div>
 
-          <h1 className="text-3xl lg:text-4xl font-bold text-slate-900 dark:text-slate-100 text-balance leading-tight mb-6">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 dark:text-slate-100 leading-tight mb-6 break-words">
             순환 참조 문제와 해결책, @Configuration/@ComponentScan 완전 분석
           </h1>
 
           <div className="flex flex-wrap items-center gap-4 text-sm text-slate-600 dark:text-slate-400">
             <div className="flex items-center gap-1.5">
               <User className="w-4 h-4" />
-              <span className="font-medium">김스프링</span>
+              <span className="font-medium">김찬진</span>
             </div>
             <div className="flex items-center gap-1.5">
               <Calendar className="w-4 h-4" />
-              <span>2024-01-22</span>
+              <span>2025-09-13</span>
             </div>
             <div className="flex items-center gap-1.5">
               <Clock className="w-4 h-4" />
